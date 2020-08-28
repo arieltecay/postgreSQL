@@ -1,6 +1,9 @@
 import Sequalize from 'sequelize';
-import {Sequalize, sequalize} from '../database/databse';
-sequalize.define('project',{
+import {sequalize} from '../database/databse';
+
+import Task from './task'
+
+const Project = sequalize.define('project',{
     id:{
         type: Sequalize.INTEGER,
         primaryKey: true
@@ -17,4 +20,11 @@ sequalize.define('project',{
     deliverydate:{
         type: Sequalize.DATE
     }
-})
+},{
+    timestamps: false
+});
+
+Project.hasMany(Task, {foreignKey: 'projectid', sourceKey: 'id'});
+Task.belongsTo(Project,{foreignKey: 'projectid', sourceKey: 'id'})
+
+export default Project;
