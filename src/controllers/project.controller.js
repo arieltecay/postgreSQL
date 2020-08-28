@@ -2,12 +2,12 @@ import Project from '../models/project'
 
 
 export async function createProyect (req,res){
-    const {name, priority,descriptcion, deliverydate}  = req.body;
+    const {name, priority,description, deliverydate}  = req.body;
     try{
         let newProject = await Project.create({
             name,
             priority,
-            descriptcion,
+            description,
             deliverydate
         },{
             fields: ['name', 'priority', 'description', 'deliverydate']

@@ -3,7 +3,7 @@ import {sequalize} from '../database/databse';
 
 import Task from './task'
 
-const Project = sequalize.define('project',{
+const Project = sequalize.define('projects',{
     id:{
         type: Sequalize.INTEGER,
         primaryKey: true
