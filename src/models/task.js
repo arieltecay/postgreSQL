@@ -12,7 +12,8 @@ const Task = sequalize.define ('task',{
     },
     projectid:{
         type: Sequalize.INTEGER
-    },    done:{
+    },    
+    done:{
         type: Sequalize.BOOLEAN
     }
 },{

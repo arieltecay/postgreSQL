@@ -13,6 +13,6 @@ export const sequalize = new Sequalize(
             require: 30000,
             idle: 10000
         },
-        logging: false
+        logging: false //Para mostrar mensajes por consola.-
     }
 )

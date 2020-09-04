@@ -1,9 +1,10 @@
-import Sequalize from 'sequelize';
-import {sequalize} from '../database/databse';
+import Sequalize from 'sequelize'; //Conexión para modelar los datos
+import {sequalize} from '../database/databse'; //Cadena de conexión
 
 import Task from './task'
 
-const Project = sequalize.define('projects',{
+//La variable "Project" contiene todo el esquema del proyecto.-
+const Project = sequalize.define('projects',{ 
     id:{
         type: Sequalize.INTEGER,
         primaryKey: true
@@ -21,10 +22,10 @@ const Project = sequalize.define('projects',{
         type: Sequalize.DATE
     }
 },{
-    timestamps: false
+    timestamps: false //Para no tener problemas con las fechas
 });
 
-Project.hasMany(Task, {foreignKey: 'projectid', sourceKey: 'id'});
-Task.belongsTo(Project,{foreignKey: 'projectid', sourceKey: 'id'})
-
+Project.hasMany(Task, {foreignKey: 'projectid', sourceKey: 'id'}); //El proyecto tiene muchas tareas
+Task.belongsTo(Project,{foreignKey: 'projectid', sourceKey: 'id'}) //Muchas tareas pertenecen a un proyecto
+/*En estas dos lineas se realizo la relacion en tre las dos tables*/
 export default Project;

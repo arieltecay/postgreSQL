@@ -2,6 +2,8 @@ import Project from '../models/project'
 
 
 export async function createProyect (req,res){
+    // console.log(req.body);
+    // res.send("Received")
     const {name, priority,description, deliverydate}  = req.body;
     try{
         let newProject = await Project.create({

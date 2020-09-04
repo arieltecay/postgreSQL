@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS  task(
 );
 
 -- Insert data project
-insert into project (name, priority, description, deliverydate) values ('Make an App',1,'Using a Language Javascript',2'5-11-2020');
+insert into project (name, priority, description, deliverydate) values ('Make an App',1,'Using a Language Javascript','5-11-2020');
 
 -- Insert data task
-insert into task (name, done, projectid) values ('Download VueJs',false,1)
+insert into task (name, done, projectid) values ('Download VueJs',false,1);
