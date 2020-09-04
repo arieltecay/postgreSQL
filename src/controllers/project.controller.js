@@ -12,7 +12,7 @@ export async function createProyect (req,res){
             description,
             deliverydate
         },{
-            fields: ['name', 'priority', 'description', 'deliverydate']
+            fields: ['name', 'priority', 'description', 'deliverydate']//Especifica los datos que le pasa para que no de error
         });
         if (newProject){
             return res.json({

@@ -4,7 +4,7 @@ import {sequalize} from '../database/databse'; //Cadena de conexión
 import Task from './task'
 
 //La variable "Project" contiene todo el esquema del proyecto.-
-const Project = sequalize.define('projects',{ 
+const Project = sequalize.define('project',{ 
     id:{
         type: Sequalize.INTEGER,
         primaryKey: true

@@ -3,7 +3,7 @@ import Sequalize from 'sequelize';
 export const sequalize = new Sequalize(
     'postgres',
     'postgres',
-    'admin',
+    '54321',
     {
         host: 'localhost',
         dialect: 'postgres',
