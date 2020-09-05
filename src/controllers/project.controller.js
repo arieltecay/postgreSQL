@@ -6,7 +6,7 @@ export async function createProyect(req, res) {
     // res.send("Received")
     const { name, priority, description, deliverydate } = req.body;
     try {
-        let newProject = await Project.create({
+        const newProject = await Project.create({
             name,
             priority,
             description,
