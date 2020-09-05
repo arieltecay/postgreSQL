@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getProjects = getProjects;
 exports.createProyect = createProyect;
 
 var _project = _interopRequireDefault(require("../models/project"));
@@ -13,23 +14,53 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function createProyect(_x, _x2) {
-  return _createProyect.apply(this, arguments);
+function getProjects(_x, _x2) {
+  return _getProjects.apply(this, arguments);
 }
 
-function _createProyect() {
-  _createProyect = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
-    var _req$body, name, priority, description, deliverydate, newProject;
-
+function _getProjects() {
+  _getProjects = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
+    var projects;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            _context.next = 2;
+            return _project["default"].findAll();
+
+          case 2:
+            projects = _context.sent;
+            res.json({
+              data: projects
+            });
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _getProjects.apply(this, arguments);
+}
+
+function createProyect(_x3, _x4) {
+  return _createProyect.apply(this, arguments);
+}
+
+function _createProyect() {
+  _createProyect = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
+    var _req$body, name, priority, description, deliverydate, newProject;
+
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
             // console.log(req.body);
             // res.send("Received")
             _req$body = req.body, name = _req$body.name, priority = _req$body.priority, description = _req$body.description, deliverydate = _req$body.deliverydate;
-            _context.prev = 1;
-            _context.next = 4;
+            _context2.prev = 1;
+            _context2.next = 4;
             return _project["default"].create({
               name: name,
               priority: priority,
@@ -41,37 +72,37 @@ function _createProyect() {
             });
 
           case 4:
-            newProject = _context.sent;
+            newProject = _context2.sent;
 
             if (!newProject) {
-              _context.next = 7;
+              _context2.next = 7;
               break;
             }
 
-            return _context.abrupt("return", res.json({
+            return _context2.abrupt("return", res.json({
               messaje: 'Recibido Correctamente',
               data: newProject
             }));
 
           case 7:
-            _context.next = 13;
+            _context2.next = 12;
             break;
 
           case 9:
-            _context.prev = 9;
-            _context.t0 = _context["catch"](1);
-            console.log(_context.t0);
+            _context2.prev = 9;
+            _context2.t0 = _context2["catch"](1);
+            // console.log(e);
             res.status(500).json({
               message: "Falla del sistema",
               data: {}
             });
 
-          case 13:
+          case 12:
           case "end":
-            return _context.stop();
+            return _context2.stop();
         }
       }
-    }, _callee, null, [[1, 9]]);
+    }, _callee2, null, [[1, 9]]);
   }));
   return _createProyect.apply(this, arguments);
 }

@@ -12,5 +12,6 @@ var _project = require("../controllers/project.controller");
 var router = (0, _express.Router)();
 router.post('/', _project.createProyect); //Manejador de peticion
 
+router.get('/', _project.getProjects);
 var _default = router;
 exports["default"] = _default;
