@@ -72,7 +72,7 @@ catch(e){
 
 export async function deleteTask(req,res){
     try{
-        const {id} = req.params;
+    const {id} = req.params;
     const deleteRowCount = await Task.destroy({
         where: {
             id
@@ -118,4 +118,13 @@ export async function updateTask(req,res){
     catch (e){
         console.log(e);
     }    
+}
+
+export async function getTasksByProject(req,res){
+    const {projectid} = req.params;
+    const tasks = await Task.findAll({
+        attributes: ['id', 'projectid', 'done', 'name'],
+        where: {projectid}
+    })
+    res.json({tasks})
 }

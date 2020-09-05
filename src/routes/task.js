@@ -4,7 +4,8 @@ import {
     getTasks,
     getOneTask,
     deleteTask,
-    updateTask
+    updateTask,
+    getTasksByProject
 } from '../controllers/task.controllers'
 
 const router = Router();
@@ -16,6 +17,8 @@ router.get('/:id',getOneTask)
 router.delete('/:id',deleteTask)
 router.put('/:id', updateTask)
 
+//api/task/project/:projectId
+router.get('/project/:projectid',getTasksByProject)
 
 
 export default router;
